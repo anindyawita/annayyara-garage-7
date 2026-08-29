@@ -1,21 +1,40 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isLightBg, setIsLightBg] = useState(false)
+
   useEffect(() => {
-    // Import main.js logic here
+    const handleScroll = () => {
+      const scrollPos = window.scrollY
+      setIsScrolled(scrollPos > 20)
+
+      const hero = document.getElementById('home')
+      const heroPos = hero ? hero.getBoundingClientRect().bottom + window.scrollY : 0
+      setIsLightBg(scrollPos > heroPos - 100)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+
     const script = document.createElement('script')
     script.src = '/main.js'
     script.async = true
     document.body.appendChild(script)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [])
 
   return (
     <>
       {/* NAV */}
-      <nav className="nav" id="navbar">
-        <div className="nav-logo">◆</div>
+      <nav className={`nav ${isScrolled ? 'scrolled' : ''} ${isLightBg ? 'light-bg' : ''}`} id="navbar">
+        <a href="#home" className="nav-logo">Luxury Rent Car</a>
         <div className="nav-links">
           <a href="#service">Layanan</a>
           <a href="#armada">Armada</a>
@@ -23,18 +42,23 @@ export default function Home() {
           <a href="#booking">Cara Booking</a>
           <a href="#kontak" className="nav-cta">Hubungi Kami</a>
         </div>
-        <button className="nav-hamburger" id="hamburger" aria-label="Menu">
+        <button 
+          className={`nav-hamburger ${isMobileMenuOpen ? 'open' : ''}`} 
+          id="hamburger" 
+          aria-label="Menu"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
           <span></span><span></span><span></span>
         </button>
       </nav>
 
       {/* MOBILE MENU */}
-      <div className="mobile-menu" id="mobileMenu">
-        <a href="#service">Layanan</a>
-        <a href="#armada">Armada</a>
-        <a href="#testimoni">Testimoni</a>
-        <a href="#booking">Cara Booking</a>
-        <a href="#kontak">Hubungi Kami</a>
+      <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''} ${isLightBg ? 'light-bg' : ''}`} id="mobileMenu">
+        <a href="#service" onClick={() => setIsMobileMenuOpen(false)}>Layanan</a>
+        <a href="#armada" onClick={() => setIsMobileMenuOpen(false)}>Armada</a>
+        <a href="#testimoni" onClick={() => setIsMobileMenuOpen(false)}>Testimoni</a>
+        <a href="#booking" onClick={() => setIsMobileMenuOpen(false)}>Cara Booking</a>
+        <a href="#kontak" onClick={() => setIsMobileMenuOpen(false)}>Hubungi Kami</a>
       </div>
 
       {/* HERO */}
@@ -45,17 +69,12 @@ export default function Home() {
         </div>
         <div className="hero-content fade-in">
           <div className="eyebrow">Sewa Mobil Premium Surabaya</div>
-          <h1 className="hero-title">Perjalanan <em>berkelas</em>,<br />driver terpercaya</h1>
+          <h1 className="hero-title">PERJALANAN <em>BERKELAS</em>,<br />DRIVER TERPERCAYA</h1>
           <p className="hero-desc">Armada premium, driver profesional, dan layanan terpercaya untuk setiap perjalanan penting Anda.</p>
           <a href="https://wa.me/6281332166797" target="_blank" rel="noopener noreferrer" className="btn-primary">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.118 1.532 5.845L.057 23.516a.5.5 0 0 0 .612.612l5.671-1.475A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.686-.536-5.197-1.464l-.372-.22-3.863 1.004 1.025-3.746-.242-.384A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
             Hubungi Kami
           </a>
-          <div className="hero-badges">
-            <div className="badge">Tersedia 24 Jam</div>
-            <div className="badge">Driver Berpengalaman</div>
-            <div className="badge">Garasi Terverifikasi</div>
-          </div>
         </div>
       </section>
 
@@ -74,13 +93,6 @@ export default function Home() {
               </div>
               <div className="service-label">Wisata & Tur</div>
               <div className="service-desc">Museum, destinasi budaya, wisata kota Surabaya dan sekitarnya</div>
-            </div>
-            <div className="service-card fade-in">
-              <div className="service-icon-wrap">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9a6b2e" strokeWidth="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>
-              </div>
-              <div className="service-label">Airport Transfer</div>
-              <div className="service-desc">Penjemputan dan pengantaran bandara, tepat waktu dan nyaman</div>
             </div>
             <div className="service-card fade-in">
               <div className="service-icon-wrap">
@@ -104,23 +116,23 @@ export default function Home() {
           <div className="layanan-grid">
             <div className="layanan-card fade-in">
               <div className="layanan-num">01</div>
-              <div className="layanan-title">Driver Sabar & Berpengalaman</div>
-              <div className="layanan-desc">Driver profesional siap menemani setiap perjalanan Anda dengan keahlian mengemudi yang sudah teruji dan rekam jejak terpercaya.</div>
+              <div className="layanan-title">Mobil Terbaru dan Lengkap</div>
+              <div className="layanan-desc">Luxury Rent Car memiliki unit banyak dan baru-baru: Mobil Premium, SUV, MPV, Sedan, Sport, Mini Bus. Semua unit ada sesuai permintaan Anda.</div>
             </div>
             <div className="layanan-card fade-in">
               <div className="layanan-num">02</div>
-              <div className="layanan-title">Mobil Terbaru & Lengkap</div>
-              <div className="layanan-desc">Unit banyak dan baru — Premium, SUV, MPV, Sedan, Sport, Mini Bus. Semua unit tersedia sesuai permintaan Anda.</div>
+              <div className="layanan-title">Driver Sabar dan Pengalaman</div>
+              <div className="layanan-desc">Layanan kami dilengkapi dengan driver profesional yang siap menemani perjalanan Anda dengan keahlian mengemudi yang sudah teruji.</div>
             </div>
             <div className="layanan-card fade-in">
               <div className="layanan-num">03</div>
               <div className="layanan-title">Lokasi Kantor / Garasi Jelas</div>
-              <div className="layanan-desc">Jl. Wisma Tirta Agung Asri V.87 Gununganyar, Surabaya. Anda bisa melihat unit langsung sambil tanda jadi.</div>
+              <div className="layanan-desc">Kunjungi kantor kami di Jl. Wisma Tirta Agung Asri V.87 Gununganyar, Surabaya. Kami memiliki lokasi kantor/garasi yang jelas, memudahkan Anda untuk melihat armada yang mau disewa, atau bayar tanda jadi dan silaturahmi dengan kami.</div>
             </div>
             <div className="layanan-card fade-in">
               <div className="layanan-num">04</div>
               <div className="layanan-title">Reservasi 24 Jam</div>
-              <div className="layanan-desc">Buka 24 jam setiap hari. Reservasi via telepon atau WhatsApp kapan saja — tidak usah sungkan untuk menghubungi kami.</div>
+              <div className="layanan-desc">Kami buka 24 jam. Anda bisa reservasi sewa mobil dengan kami 24 jam setiap hari, baik telepon atau WhatsApp. Tidak usah sungkan-sungkan untuk menghubungi kami. Tanya-tanya informasi sewa mobil gratis.</div>
             </div>
           </div>
         </div>
@@ -132,92 +144,44 @@ export default function Home() {
           <div className="section-header fade-in">
             <div className="eyebrow">Armada</div>
             <h2 className="section-title">Mobil Siap Sewa</h2>
-            <p className="section-sub">Dengan driver berpengalaman — tidak lepas kunci</p>
+            <p className="section-sub">Dengan driver berpengalaman, tidak lepas kunci</p>
           </div>
           <div className="mobil-grid">
             <div className="mobil-card fade-in">
               <img src="/media/WhatsApp Image 2026-04-11 at 11.02.57 AM (1).jpeg" alt="Alphard New" className="mobil-img" />
-              <div className="mobil-overlay"></div>
-              <div className="mobil-info">
-                <div className="mobil-type">Premium MPV</div>
-              </div>
             </div>
             <div className="mobil-card fade-in">
               <img src="/media/WhatsApp Image 2026-04-11 at 11.02.57 AM.jpeg" alt="Avanza" className="mobil-img" />
-              <div className="mobil-overlay"></div>
-              <div className="mobil-info">
-                <div className="mobil-type">MPV</div>
-              </div>
             </div>
             <div className="mobil-card fade-in">
               <img src="/media/WhatsApp Image 2026-04-11 at 11.02.58 AM (1).jpeg" alt="Mobil Pengantin" className="mobil-img" />
-              <div className="mobil-overlay"></div>
-              <div className="mobil-info">
-                <div className="mobil-type">Special Wedding</div>
-              </div>
             </div>
             <div className="mobil-card fade-in">
               <img src="/media/WhatsApp Image 2026-04-11 at 11.02.58 AM.jpeg" alt="Inova Reborn" className="mobil-img" />
-              <div className="mobil-overlay"></div>
-              <div className="mobil-info">
-                <div className="mobil-type">MPV</div>
-              </div>
             </div>
             <div className="mobil-card fade-in">
               <img src="/media/WhatsApp Image 2026-04-11 at 11.02.59 AM (1).jpeg" alt="Vellfire" className="mobil-img" />
-              <div className="mobil-overlay"></div>
-              <div className="mobil-info">
-                <div className="mobil-type">Luxury MPV</div>
-              </div>
             </div>
             <div className="mobil-card fade-in">
               <img src="/media/WhatsApp Image 2026-04-11 at 11.02.59 AM (2).jpeg" alt="Hiace Premio" className="mobil-img" />
-              <div className="mobil-overlay"></div>
-              <div className="mobil-info">
-                <div className="mobil-type">Mini Bus 14 Seat</div>
-              </div>
             </div>
             <div className="mobil-card fade-in">
               <img src="/media/WhatsApp Image 2026-04-11 at 11.02.59 AM.jpeg" alt="Innova Zenix" className="mobil-img" />
-              <div className="mobil-overlay"></div>
-              <div className="mobil-info">
-                <div className="mobil-type">MPV Hybrid</div>
-              </div>
             </div>
             <div className="mobil-card fade-in">
               <img src="/media/WhatsApp Image 2026-04-11 at 11.03.02 AM.jpeg" alt="Land Cruiser" className="mobil-img" />
-              <div className="mobil-overlay"></div>
-              <div className="mobil-info">
-                <div className="mobil-type">SUV Premium</div>
-              </div>
             </div>
             <div className="mobil-card fade-in">
               <img src="/media/WhatsApp Image 2026-04-11 at 11.03.04 AM (1).jpeg" alt="Hiace Luxury" className="mobil-img" />
-              <div className="mobil-overlay"></div>
-              <div className="mobil-info">
-                <div className="mobil-type">Mini Bus 8 Seat</div>
-              </div>
             </div>
             <div className="mobil-card fade-in">
               <img src="/media/WhatsApp Image 2026-04-11 at 11.03.04 AM.jpeg" alt="Palisade" className="mobil-img" />
-              <div className="mobil-overlay"></div>
-              <div className="mobil-info">
-                <div className="mobil-type">SUV</div>
-              </div>
             </div>
             <div className="mobil-card fade-in">
               <img src="/media/WhatsApp Image 2026-04-11 at 11.03.05 AM (1).jpeg" alt="Mercy Sprinter" className="mobil-img" />
-              <div className="mobil-overlay"></div>
-              <div className="mobil-info">
-                <div className="mobil-type">Mini Bus Premium</div>
-              </div>
             </div>
             <div className="mobil-card fade-in">
               <img src="/media/WhatsApp Image 2026-04-11 at 11.03.05 AM.jpeg" alt="Fortuner" className="mobil-img" />
-              <div className="mobil-overlay"></div>
-              <div className="mobil-info">
-                <div className="mobil-type">SUV</div>
-              </div>
             </div>
           </div>
         </div>
@@ -229,7 +193,7 @@ export default function Home() {
           <div className="section-header fade-in">
             <div className="eyebrow">Testimonials</div>
             <h2 className="section-title">Yang pelanggan katakan</h2>
-            <p className="section-sub">Ulasan nyata dari pengguna Google Maps</p>
+            <p className="section-sub">Ulasan nyata dari pelanggan kami</p>
           </div>
           <div className="review-grid">
             <div className="review-card fade-in">
@@ -238,18 +202,16 @@ export default function Home() {
               </div>
               <p className="review-text">Berangkat di hari bahagia dengan mobil yang bersih, elegan, dan tepat waktu. Pelayanan ramah, driver profesional, perjalanan terasa nyaman dan berkelas.</p>
               <div className="review-footer">
-                <div className="reviewer-name">Satriyo Wibowo</div>
-                <div className="reviewer-via">via Google Maps</div>
+                <div className="reviewer-name">Satriyo</div>
               </div>
             </div>
             <div className="review-card fade-in">
               <div className="stars">
                 {[1,2,3,4,5].map(i => <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#d4900a"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>)}
               </div>
-              <p className="review-text">Interior mobilnya bersih, lega, dan sangat nyaman. Jok empuk, kabin rapi, perjalanan jadi tenang dan premium — cocok untuk tamu VIP.</p>
+              <p className="review-text">Interior mobilnya bersih, lega, dan sangat nyaman. Jok empuk, kabin rapi, perjalanan jadi tenang dan premium, cocok untuk tamu VIP.</p>
               <div className="review-footer">
                 <div className="reviewer-name">Sukiman</div>
-                <div className="reviewer-via">via Google Maps</div>
               </div>
             </div>
             <div className="review-card fade-in">
@@ -258,8 +220,7 @@ export default function Home() {
               </div>
               <p className="review-text">Mobilnya mewah, bersih, dan terlihat sangat elegan. Kondisi unit prima, tampilan rapi, dan nyaman dipakai untuk acara penting.</p>
               <div className="review-footer">
-                <div className="reviewer-name">Samuel Richard</div>
-                <div className="reviewer-via">via Google Maps</div>
+                <div className="reviewer-name">Samuel</div>
               </div>
             </div>
           </div>

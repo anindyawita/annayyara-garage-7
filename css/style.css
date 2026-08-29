@@ -130,6 +130,7 @@ a {
 }
 
 .nav-logo {
+  display: none;
   font-family: "Playfair Display", Georgia, serif;
   font-size: 16px;
   font-weight: 700;
@@ -137,6 +138,7 @@ a {
   letter-spacing: 0.01em;
   white-space: nowrap;
   transition: color 0.3s;
+  text-decoration: none;
 }
 
 .nav.scrolled .nav-logo {
@@ -967,7 +969,25 @@ height: 100vh
   }
 
   .nav {
-    padding: 0 24px;
+    padding: 12px 20px;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    max-width: none;
+    transform: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .nav-logo {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #faf9f6;
+    text-decoration: none;
   }
 
   .nav-links {

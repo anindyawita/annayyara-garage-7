@@ -112,6 +112,7 @@ a {
 }
 
 .nav-logo {
+  display: none;
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 16px;
   font-weight: 700;
@@ -119,6 +120,7 @@ a {
   letter-spacing: 0.01em;
   white-space: nowrap;
   transition: color 0.3s;
+  text-decoration: none;
 }
 
 .nav.light-bg .nav-logo {
@@ -501,8 +503,10 @@ a {
 /* === SERVICE SECTION === */
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .service-card {
@@ -820,16 +824,26 @@ a {
   }
 
   .nav {
-    padding: 10px 20px;
+    padding: 12px 20px;
     top: 16px;
-    left: 12px;
-    right: 12px;
-    width: calc(100% - 24px);
+    left: 16px;
+    right: 16px;
+    width: auto;
     max-width: none;
+    transform: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
   }
 
   .nav-logo {
-    font-size: 14px;
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #faf9f6;
+    text-decoration: none;
+    letter-spacing: 0.02em;
   }
 
   .nav-links {
@@ -838,14 +852,36 @@ a {
 
   .nav-hamburger {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    z-index: 101;
   }
 
   .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
     background: #faf9f6;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .nav.light-bg .nav-hamburger span {
     background: #faf9f6;
+  }
+
+  .mobile-menu {
+    top: 76px;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    max-width: none;
+    box-sizing: border-box;
   }
 
   .hero-content {
