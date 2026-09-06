@@ -648,6 +648,66 @@ a {
   text-transform: uppercase;
 }
 
+/* === ARMADA LIST (nama unit) === */
+.armada-list-wrap {
+  margin-top: 48px;
+  text-align: center;
+}
+
+.armada-list-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #9a6b2e;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.armada-marquee {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
+}
+
+.armada-list {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  gap: 14px;
+  padding-right: 14px;
+  width: max-content;
+  animation: armadaScroll 22s linear infinite;
+}
+
+.armada-marquee:hover .armada-list {
+  animation-play-state: paused;
+}
+
+@keyframes armadaScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+.armada-chip {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1612;
+  background: #fff;
+  border: 0.5px solid #e8e2d9;
+  padding: 12px 26px;
+  border-radius: 100px;
+  white-space: nowrap;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.armada-chip:hover {
+  background: #9a6b2e;
+  border-color: #9a6b2e;
+  color: #faf9f6;
+}
+
 /* === TESTIMONI SECTION === */
 .review-grid {
   display: grid;
