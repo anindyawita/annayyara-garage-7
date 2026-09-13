@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -64,7 +65,14 @@ export default function Home() {
       {/* HERO */}
       <section className="hero" id="home">
         <div className="hero-bg">
-          <img src="/media/hero.jpeg" alt="Luxury Car" className="hero-img" />
+          <Image
+            src="/media/hero.jpeg"
+            alt="Sewa Mobil Surabaya - Annayyara Garage 7"
+            fill
+            priority
+            sizes="100vw"
+            className="hero-img"
+          />
           <div className="hero-overlay"></div>
         </div>
         <div className="hero-content fade-in">
@@ -148,40 +156,40 @@ export default function Home() {
           </div>
           <div className="mobil-grid">
             <div className="mobil-card fade-in">
-              <img src="/media/WhatsApp Image 2026-04-11 at 11.02.57 AM (1).jpeg" alt="Alphard New" className="mobil-img" />
+              <Image src="/media/WhatsApp Image 2026-04-11 at 11.02.57 AM (1).jpeg" alt="Sewa Alphard New Surabaya" fill sizes="(max-width: 768px) 50vw, 25vw" className="mobil-img" />
             </div>
             <div className="mobil-card fade-in">
-              <img src="/media/WhatsApp Image 2026-04-11 at 11.02.57 AM.jpeg" alt="Avanza" className="mobil-img" />
+              <Image src="/media/WhatsApp Image 2026-04-11 at 11.02.57 AM.jpeg" alt="Sewa Avanza Surabaya" fill sizes="(max-width: 768px) 50vw, 25vw" className="mobil-img" />
             </div>
             <div className="mobil-card fade-in">
-              <img src="/media/WhatsApp Image 2026-04-11 at 11.02.58 AM (1).jpeg" alt="Mobil Pengantin" className="mobil-img" />
+              <Image src="/media/WhatsApp Image 2026-04-11 at 11.02.58 AM (1).jpeg" alt="Sewa Mobil Pengantin Surabaya" fill sizes="(max-width: 768px) 50vw, 25vw" className="mobil-img" />
             </div>
             <div className="mobil-card fade-in">
-              <img src="/media/WhatsApp Image 2026-04-11 at 11.02.58 AM.jpeg" alt="Inova Reborn" className="mobil-img" />
+              <Image src="/media/WhatsApp Image 2026-04-11 at 11.02.58 AM.jpeg" alt="Sewa Inova Reborn Surabaya" fill sizes="(max-width: 768px) 50vw, 25vw" className="mobil-img" />
             </div>
             <div className="mobil-card fade-in">
-              <img src="/media/WhatsApp Image 2026-04-11 at 11.02.59 AM (1).jpeg" alt="Vellfire" className="mobil-img" />
+              <Image src="/media/WhatsApp Image 2026-04-11 at 11.02.59 AM (1).jpeg" alt="Sewa Vellfire Surabaya" fill sizes="(max-width: 768px) 50vw, 25vw" className="mobil-img" />
             </div>
             <div className="mobil-card fade-in">
-              <img src="/media/WhatsApp Image 2026-04-11 at 11.02.59 AM (2).jpeg" alt="Hiace Premio" className="mobil-img" />
+              <Image src="/media/WhatsApp Image 2026-04-11 at 11.02.59 AM (2).jpeg" alt="Sewa Hiace Premio Surabaya" fill sizes="(max-width: 768px) 50vw, 25vw" className="mobil-img" />
             </div>
             <div className="mobil-card fade-in">
-              <img src="/media/WhatsApp Image 2026-04-11 at 11.02.59 AM.jpeg" alt="Innova Zenix" className="mobil-img" />
+              <Image src="/media/WhatsApp Image 2026-04-11 at 11.02.59 AM.jpeg" alt="Sewa Innova Zenix Surabaya" fill sizes="(max-width: 768px) 50vw, 25vw" className="mobil-img" />
             </div>
             <div className="mobil-card fade-in">
-              <img src="/media/WhatsApp Image 2026-04-11 at 11.03.02 AM.jpeg" alt="Land Cruiser" className="mobil-img" />
+              <Image src="/media/WhatsApp Image 2026-04-11 at 11.03.02 AM.jpeg" alt="Sewa Land Cruiser Surabaya" fill sizes="(max-width: 768px) 50vw, 25vw" className="mobil-img" />
             </div>
             <div className="mobil-card fade-in">
-              <img src="/media/WhatsApp Image 2026-04-11 at 11.03.04 AM (1).jpeg" alt="Hiace Luxury" className="mobil-img" />
+              <Image src="/media/WhatsApp Image 2026-04-11 at 11.03.04 AM (1).jpeg" alt="Sewa Hiace Luxury Surabaya" fill sizes="(max-width: 768px) 50vw, 25vw" className="mobil-img" />
             </div>
             <div className="mobil-card fade-in">
-              <img src="/media/WhatsApp Image 2026-04-11 at 11.03.04 AM.jpeg" alt="Palisade" className="mobil-img" />
+              <Image src="/media/WhatsApp Image 2026-04-11 at 11.03.04 AM.jpeg" alt="Sewa Palisade Surabaya" fill sizes="(max-width: 768px) 50vw, 25vw" className="mobil-img" />
             </div>
             <div className="mobil-card fade-in">
-              <img src="/media/WhatsApp Image 2026-04-11 at 11.03.05 AM (1).jpeg" alt="Mercy Sprinter" className="mobil-img" />
+              <Image src="/media/WhatsApp Image 2026-04-11 at 11.03.05 AM (1).jpeg" alt="Sewa Mercy Sprinter Surabaya" fill sizes="(max-width: 768px) 50vw, 25vw" className="mobil-img" />
             </div>
             <div className="mobil-card fade-in">
-              <img src="/media/WhatsApp Image 2026-04-11 at 11.03.05 AM.jpeg" alt="Fortuner" className="mobil-img" />
+              <Image src="/media/WhatsApp Image 2026-04-11 at 11.03.05 AM.jpeg" alt="Sewa Fortuner Surabaya" fill sizes="(max-width: 768px) 50vw, 25vw" className="mobil-img" />
             </div>
           </div>
 
