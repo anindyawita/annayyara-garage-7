@@ -1,7 +1,7 @@
 {
-  "name": "luxury-rent-car-surabaya",
+  "name": "annayyara-garage-7-surabaya",
   "version": "1.0.0",
-  "description": "Luxury Rent Car Surabaya - Premium car rental website",
+  "description": "Annayyara Garage 7 Surabaya - Premium car rental website",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

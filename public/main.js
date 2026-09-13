@@ -1,5 +1,5 @@
 /* =============================================
-   LUXURY RENT CAR SURABAYA — main.js
+   ANNAYYARA GARAGE 7 SURABAYA — main.js
    ============================================= */
 
 function initNavbar() {

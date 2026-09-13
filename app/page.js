@@ -34,7 +34,7 @@ export default function Home() {
     <>
       {/* NAV */}
       <nav className={`nav ${isScrolled ? 'scrolled' : ''} ${isLightBg ? 'light-bg' : ''}`} id="navbar">
-        <a href="#home" className="nav-logo">Luxury Rent Car</a>
+        <a href="#home" className="nav-logo">Annayyara Garage 7</a>
         <div className="nav-links">
           <a href="#service">Layanan</a>
           <a href="#armada">Armada</a>
@@ -111,13 +111,13 @@ export default function Home() {
           <div className="section-header fade-in">
             <div className="eyebrow">Keunggulan Kami</div>
             <h2 className="section-title">Layanan Kami</h2>
-            <p className="section-sub">Kenapa memilih Luxury Rent Car Surabaya</p>
+            <p className="section-sub">Kenapa memilih Annayyara Garage 7 Surabaya</p>
           </div>
           <div className="layanan-grid">
             <div className="layanan-card fade-in">
               <div className="layanan-num">01</div>
               <div className="layanan-title">Mobil Terbaru dan Lengkap</div>
-              <div className="layanan-desc">Luxury Rent Car memiliki unit banyak dan baru-baru: Mobil Premium, SUV, MPV, Sedan, Sport, Mini Bus. Semua unit ada sesuai permintaan Anda.</div>
+              <div className="layanan-desc">Annayyara Garage 7 memiliki unit banyak dan baru-baru: Mobil Premium, SUV, MPV, Sedan, Sport, Mini Bus. Semua unit ada sesuai permintaan Anda.</div>
             </div>
             <div className="layanan-card fade-in">
               <div className="layanan-num">02</div>
@@ -340,7 +340,7 @@ export default function Home() {
         <div className="container">
           <div className="footer-top">
             <div className="footer-brand">
-              <div className="footer-logo">Luxury Rent Car Surabaya</div>
+              <div className="footer-logo">Annayyara Garage 7 Surabaya</div>
               <div className="footer-tagline">Armada premium, driver profesional, dan layanan terpercaya untuk setiap perjalanan penting Anda.</div>
             </div>
             <div className="footer-col">
@@ -362,7 +362,7 @@ export default function Home() {
             </div>
           </div>
           <div className="footer-bottom">
-            © 2025 Luxury Rent Car Surabaya — Semua hak dilindungi
+            © 2025 Annayyara Garage 7 Surabaya — Semua hak dilindungi
           </div>
         </div>
       </footer>

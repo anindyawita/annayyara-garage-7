@@ -1,7 +1,7 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'Luxury Rent Car Surabaya',
+  title: 'Annayyara Garage 7 Surabaya',
   description: 'Sewa mobil premium dengan driver profesional',
 }
 

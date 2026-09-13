@@ -1,9 +1,9 @@
-# Luxury Rent Car Surabaya — Website
+# Annayyara Garage 7 Surabaya — Website
 
 ## Struktur Folder
 
 ```
-luxury-rent-car/
+annayyara-garage-7/
 ├── index.html          ← Halaman utama
 ├── css/
 │   └── style.css       ← Semua styling
@@ -19,7 +19,7 @@ luxury-rent-car/
 
 ## Cara Pakai
 
-1. Buka folder `luxury-rent-car/`
+1. Buka folder `annayyara-garage-7/`
 2. Double-click `index.html` untuk buka di browser
 3. Ganti foto-foto di folder `media/images/` sesuai nama file di bawah
 
