@@ -260,13 +260,13 @@ export default function Home() {
           </div>
           <div className="payment-box fade-in">
             <div className="payment-left">
-              <div className="payment-acct">BCA — 6750287636</div>
-              <div className="payment-name">atas nama ADELI</div>
+              <div className="payment-acct">BSI — 6749372630</div>
+              <div className="payment-name">atas nama Titis W</div>
             </div>
             <div className="payment-divider"></div>
             <div className="payment-warn">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9a4a1a" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              <p>Harap melakukan pembayaran <strong>hanya ke rekening di atas</strong>. Selain rekening atas nama Adeli dan nomor tersebut bukan tanggung jawab kami dan dipastikan penipuan.</p>
+              <p>Harap melakukan pembayaran <strong>hanya ke rekening di atas</strong>. Selain rekening atas nama Titis W dan nomor tersebut bukan tanggung jawab kami dan dipastikan penipuan.</p>
             </div>
           </div>
         </div>
@@ -318,7 +318,7 @@ export default function Home() {
               </div>
               <div className="step-content">
                 <div className="step-title">Lakukan pembayaran DP / pelunasan</div>
-                <div className="step-desc">Transfer hanya ke rekening resmi a.n. Adeli — BCA 6750287636</div>
+                <div className="step-desc">Transfer hanya ke rekening resmi a.n. Titis W — BSI 6749372630</div>
               </div>
             </div>
             <div className="step-row fade-in">
@@ -346,9 +346,9 @@ export default function Home() {
             <div className="footer-col">
               <div className="footer-col-label">Pembayaran</div>
               <div className="footer-info">
-                Nomor Rekening BCA<br />
-                <strong>6750287636</strong><br />
-                a.n. ADELI
+                Nomor Rekening BSI<br />
+                <strong>6749372630</strong><br />
+                a.n. Titis W
               </div>
             </div>
             <div className="footer-col">

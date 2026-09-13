@@ -31,7 +31,7 @@ annayyara-garage-7/
 | File | Keterangan |
 |------|------------|
 | `media/images/hero.jpg` | Foto utama di header (landscape, min 1920×600px) |
-| `media/images/bca-logo.png` | Logo BCA untuk section pembayaran |
+| `media/images/bsi-logo.png` | Logo BSI untuk section pembayaran |
 
 ### Foto Armada (tiap kartu mobil)
 | File | Nama Mobil |
@@ -85,5 +85,5 @@ Jika tidak ada file ikon, website akan otomatis fallback ke ikon SVG bawaan.
 Untuk mengganti nomor WA atau rekening, cari dan ganti teks ini di `index.html`:
 
 - **Nomor WA**: `6281332166797` (format internasional tanpa +)
-- **Rekening**: `6750287636`
-- **Nama rekening**: `ADELI`
+- **Rekening**: `6749372630`
+- **Nama rekening**: `Titis W`
